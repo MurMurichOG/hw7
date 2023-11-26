@@ -32,5 +32,10 @@ for i in a:
     print(i)
 
 
+def delete(conn):
+    cursor = conn.cursor()
+    cursor.execute("DELETE FROM user WHERE rowid % 2 = 0")
+    conn.commit()
+delete(db)
 db.commit()
 db.close()
